@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Lista de Clientes</h1>
+
+<ul>
+    {% for cliente in clientes %} 
+        <li>{{ cliente.get_nomeCompleto }} - 
+            <a href="{% url 'url_alterar' cliente.id %}">Alterar</a> - 
+            <a href="{% url 'url_excluir' cliente.id %}">Excluir</a>
+        </li>
+    {% endfor %}
+</ul>
+<br><br>
+<p><a href="{% url 'url_incluir' %}">Incluir</a></p>
+
+<br><br>
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% endblock %}
